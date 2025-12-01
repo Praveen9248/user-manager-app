@@ -2,8 +2,8 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'user-dashboard-app',
-  webDir: 'www'
+  appName: 'User Manager App',
+  webDir: 'www',
 };
 
 export default config;

@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>User Detail</ion-title>
+    <ion-back-button defaultHref="/users" slot="start"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  @if (userData) {
+  <ion-card>
+    <img src="https://lipsum.app/random/1600x900" alt="" />
+    <ion-card-header>
+      <ion-card-subtitle>ID #{{userData.id}}</ion-card-subtitle>
+      <ion-card-title>{{userData.name}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list lines="none" class="ion-margin">
+        <ion-list-header> User Data </ion-list-header>
+        <ion-item>
+          <ion-label>Email Id: {{userData.email}}</ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>Gender: {{userData.gender}}</ion-label>
+        </ion-item>
+        <ion-item>
+          @if(userData.status){
+          <ion-label>Status: Acive</ion-label>
+          }@else{
+          <ion-label>Status: In-Acive</ion-label>
+          }
+        </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-button (click)="onEdit(userData.id)">Edit User</ion-button>
+        <ion-button color="danger" (click)="openDeleteActionSheet(userData.id)"
+          >Delete User</ion-button
+        >
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  }
+</ion-content>

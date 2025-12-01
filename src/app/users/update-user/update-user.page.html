@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>User Edit</ion-title>
+    <ion-back-button defaultHref="/home" slot="start"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <form
+    [formGroup]="userUpdateForm"
+    (ngSubmit)="onUpdate()"
+    class="ion-padding"
+  >
+    <ion-list class="ion-padding">
+      <ion-label position="floating">Name</ion-label>
+      <ion-input formControlName="name"></ion-input>
+    </ion-list>
+
+    <ion-list class="ion-padding">
+      <ion-label position="floating">Email</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-list>
+
+    <ion-list class="ion-padding">
+      <ion-label position="floating">Gender</ion-label>
+      <ion-select formControlName="gender">
+        <ion-select-option value="male">Male</ion-select-option>
+        <ion-select-option value="female">Female</ion-select-option>
+      </ion-select>
+    </ion-list>
+
+    <ion-list class="ion-padding">
+      <ion-label>Status</ion-label>
+      <ion-toggle formControlName="status" class="ion-padding"></ion-toggle>
+    </ion-list>
+
+    <ion-button
+      expand="full"
+      type="submit"
+      [disabled]="userUpdateForm.invalid"
+      size="large"
+    >
+      Update User</ion-button
+    >
+  </form>
+</ion-content>
